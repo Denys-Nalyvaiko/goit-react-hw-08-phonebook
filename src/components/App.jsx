@@ -4,7 +4,6 @@ import { Global } from '@emotion/react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { orange, lime } from '@mui/material/colors';
 import { GlobalStyles } from 'css/GlobalStyles';
-import { Container } from './Container.styled';
 import SharedLayout from './SharedLayout/SharedLayout';
 
 const HomePage = lazy(() => import('pages/HomePage'));
@@ -22,18 +21,16 @@ const theme = createTheme({
 export const App = () => (
   <>
     <Global styles={GlobalStyles} />
-    <Container>
-      <ThemeProvider theme={theme}>
-        <Routes>
-          <Route paht='' element={<SharedLayout /> }>
-            <Route index element={<HomePage />} />
-            <Route path='register' element={<RegisterPage />} />
-            <Route path='login' element={<LoginPage />} />
-            <Route path='contacts' element={<ContactsPage />} />
-            <Route path='*' element={ <h2>Not Found</h2>} />
-          </Route>
-        </Routes>
-      </ThemeProvider>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Routes>
+        <Route paht="" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+          <Route path="*" element={<h2>Not Found</h2>} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   </>
 );

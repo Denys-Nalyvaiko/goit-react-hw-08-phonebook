@@ -12,7 +12,7 @@ import {
 import { selectFilter } from '../../redux/filter/selectFilter';
 import { fetchContacts } from '../../redux/contacts/contactsOperations';
 import { Demo } from './ContactListDemo.styled';
-import { InfoTitle } from 'components/Container.styled';
+import { InfoTitle } from 'css/Containers/Container.styled';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
