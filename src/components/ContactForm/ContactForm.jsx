@@ -80,7 +80,7 @@ export const ContactForm = () => {
       >
         {() => (
           <TextInput
-            label="number"
+            label="Number"
             variant="outlined"
             type="tel"
             name="number"

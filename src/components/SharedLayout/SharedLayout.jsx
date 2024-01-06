@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectIsLogin } from '../../redux/auth/selectUser';
 import AuthMenu from 'components/AuthMenu/AuthMenu';
 import UserMenu from 'components/UserMenu/UserMenu';
+import Loader from 'components/Loader/Loader';
 import {
   NavigationContainer,
   LinkContainer,
@@ -22,7 +23,7 @@ const SharedLayout = () => {
         </LinkContainer>
         <LinkContainer>{isLogin ? <UserMenu /> : <AuthMenu />}</LinkContainer>
       </NavigationContainer>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </>
