@@ -8,7 +8,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteContact } from '../../redux/contacts/contactsOperations';
 
-export const ContactItem = ({ id, name, phone }) => {
+export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   const handleDeleteButtonClick = id => {
@@ -34,7 +34,7 @@ export const ContactItem = ({ id, name, phone }) => {
       </ListItemAvatar>
       <ListItemText
         primary={name}
-        secondary={phone}
+        secondary={number}
         primaryTypographyProps={{ color: '#f6d9b1' }}
         secondaryTypographyProps={{ color: '#dca75d' }}
         sx={{ textTransform: 'capitalize' }}

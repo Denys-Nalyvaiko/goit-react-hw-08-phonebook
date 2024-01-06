@@ -48,8 +48,8 @@ export const ContactList = () => {
             <Demo>
               <List>
                 {filteredContacts
-                  .map(({ id, name, phone }) => (
-                    <ContactItem key={id} id={id} name={name} phone={phone} />
+                  .map(({ id, name, number }) => (
+                    <ContactItem key={id} id={id} name={name} number={number} />
                   ))
                   .toReversed()}
               </List>

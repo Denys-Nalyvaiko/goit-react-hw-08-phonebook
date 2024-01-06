@@ -10,21 +10,21 @@ import { FormBox, TextInput } from './ContactForm.styled';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
 
   const options = {
     name: setName,
-    phone: setPhone,
+    number: setNumber,
   };
   const nameInputId = nanoid();
-  const phoneInputId = nanoid();
+  const numberInputId = nanoid();
 
   const handleFormSubmit = event => {
     event.preventDefault();
 
-    const currentContact = { name, phone };
+    const currentContact = { name, number };
     const isContactNameAlreadyExist = contacts.find(
       ({ name }) =>
         name.toLowerCase().trim() === currentContact.name.toLowerCase().trim()
@@ -46,7 +46,7 @@ export const ContactForm = () => {
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -75,16 +75,16 @@ export const ContactForm = () => {
       <ReactInputMask
         mask="999-999-9999"
         maskChar=""
-        value={phone}
+        value={number}
         onChange={handleInputChange}
       >
         {() => (
           <TextInput
-            label="Phone"
+            label="number"
             variant="outlined"
             type="tel"
-            name="phone"
-            id={phoneInputId}
+            name="number"
+            id={numberInputId}
             required
           />
         )}
