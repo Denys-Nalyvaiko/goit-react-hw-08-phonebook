@@ -11,6 +11,7 @@ export const NavigationContainer = styled.nav`
 export const LinkContainer = styled.div`
   display: flex;
   gap: 12px;
+  align-items: center;
 `;
 
 export const NavigationLink = styled(NavLink)`
