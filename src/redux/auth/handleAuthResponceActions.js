@@ -1,3 +1,14 @@
+const handlePending = state => ({
+  ...state,
+  isLoading: true,
+});
+
+const handleFulfilled = state => ({
+  ...state,
+  isLoading: false,
+  error: null,
+});
+
 const handleSignupUserFulfilled = (state, { payload }) => ({
   ...state,
   user: {
@@ -28,8 +39,17 @@ const handleLogoutUserFulfilled = state => ({
   isLogin: false,
 });
 
+const handleRejected = (state, { payload }) => ({
+  ...state,
+  error: payload,
+  isLoading: false,
+});
+
 export {
+  handlePending,
+  handleFulfilled,
   handleSignupUserFulfilled,
   handleLoginUserFulfilled,
   handleLogoutUserFulfilled,
+  handleRejected,
 };
