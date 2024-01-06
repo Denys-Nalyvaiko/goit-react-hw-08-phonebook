@@ -1,12 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import * as operations from './contactsOperations';
 import * as responceHandlers from './handleContactsResponceActions';
-import * as actionCheker from '../checkAction';
 
 const initialState = {
   list: [],
-  isLoading: false,
-  error: null,
 };
 
 const contactsSlice = createSlice({
@@ -25,15 +22,6 @@ const contactsSlice = createSlice({
       .addCase(
         operations.deleteContact.fulfilled,
         responceHandlers.handleDeleteContact
-      )
-      .addMatcher(actionCheker.isPendingAction, responceHandlers.handlePending)
-      .addMatcher(
-        actionCheker.isFulfilledAction,
-        responceHandlers.handleFulfilled
-      )
-      .addMatcher(
-        actionCheker.isRejectedAction,
-        responceHandlers.handleRejected
       );
   },
 });

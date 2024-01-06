@@ -4,11 +4,8 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import {
-  selectContacts,
-  selectError,
-  selectIsLoading,
-} from '../../redux/contacts/selectContacts';
+import {  selectContacts } from '../../redux/contacts/selectContacts';
+import { selectError, selectIsLoading } from '../../redux/common/selectCommon';
 import { selectFilter } from '../../redux/filter/selectFilter';
 import { fetchContacts } from '../../redux/contacts/contactsOperations';
 import { Demo } from './ContactListDemo.styled';

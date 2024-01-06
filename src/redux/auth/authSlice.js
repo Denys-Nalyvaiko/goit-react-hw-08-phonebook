@@ -3,15 +3,12 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import * as operations from './authOperations';
 import * as responceHandler from './handleAuthResponceActions';
-import * as actionCheker from '../checkAction';
 
 const initialState = {
   user: { name: '', email: '' },
   token: '',
   isLogin: false,
   isRefreshing: false,
-  isLoading: false,
-  error: null,
 };
 
 const persistConfig = {
@@ -35,15 +32,6 @@ const authSlice = createSlice({
       .addCase(
         operations.logoutUser.fulfilled,
         responceHandler.handleLogoutUserFulfilled
-      )
-      .addMatcher(actionCheker.isPendingAction, responceHandler.handlePending)
-      .addMatcher(
-        actionCheker.isFulfilledAction,
-        responceHandler.handleFulfilled
-      )
-      .addMatcher(
-        actionCheker.isRejectedAction,
-        responceHandler.handleRejected
       );
   },
 });

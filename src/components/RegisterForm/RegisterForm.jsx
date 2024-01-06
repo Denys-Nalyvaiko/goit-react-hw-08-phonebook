@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import Button from '@mui/material/Button';
 import { signupUser } from '../../redux/auth/authOperations';
-import { selectIsLoading, selectError } from '../../redux/auth/selectUser';
+import { selectIsLoading, selectError } from '../../redux/common/selectCommon';
 import { FormBox, TextInput } from './RegisterForm.styled';
 import { ErrorTitle } from 'css/Containers/Container.styled';
 import ContentLoader from 'components/ContentLoader/ContentLoader';
