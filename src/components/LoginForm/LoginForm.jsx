@@ -1,14 +1,19 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import Button from '@mui/material/Button';
 import { loginUser } from '../../redux/auth/authOperations';
+import { selectIsLoading, selectError } from '../../redux/auth/selectUser';
 import { FormBox, TextInput } from './LoginForm.styled';
+import { ErrorTitle } from 'css/Containers/Container.styled';
+import ContentLoader from 'components/ContentLoader/ContentLoader';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   const options = {
     email: setEmail,
@@ -37,7 +42,8 @@ const LoginForm = () => {
   };
 
   return (
-    <FormBox
+    <>
+      <FormBox
       component="form"
       sx={{
         '& > :not(style)': {
@@ -73,6 +79,14 @@ const LoginForm = () => {
         Log in
       </Button>
     </FormBox>
+
+      
+      {error && <ErrorTitle>{error}</ErrorTitle>}
+      
+      {isLoading && <ContentLoader />}
+    </>
+
+
   );
 };
 

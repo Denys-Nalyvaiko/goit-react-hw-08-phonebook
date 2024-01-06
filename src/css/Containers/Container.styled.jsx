@@ -31,3 +31,12 @@ export const AuthLink = styled(Link)`
   color: #dca75d;
   text-decoration: underline;
 `;
+
+export const ErrorTitle = styled.p`
+  color: #f6d9b1;
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 24px;
+  text-align: center;
+`
