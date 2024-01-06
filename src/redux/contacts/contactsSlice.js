@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import * as operations from './contactsOperations';
-import * as responceHandlers from './handleResponceActions';
+import * as responceHandlers from './handleContactsResponceActions';
 import * as actionCheker from './checkAction';
 
 const initialState = {

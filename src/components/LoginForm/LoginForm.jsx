@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
 import Button from '@mui/material/Button';
+import { loginUser } from '../../redux/auth/authOperations';
 import { FormBox, TextInput } from './LoginForm.styled';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
   const options = {
     email: setEmail,
@@ -18,7 +21,7 @@ const LoginForm = () => {
     event.preventDefault();
 
     const currentUser = { email, password };
-    console.log(currentUser);
+    dispatch(loginUser(currentUser));
 
     reset();
   };
