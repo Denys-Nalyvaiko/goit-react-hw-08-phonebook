@@ -1,4 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 import * as operations from './authOperations';
 import * as responceHandler from './handleAuthResponceActions';
 
@@ -7,6 +9,11 @@ const initialState = {
   token: '',
   isLogin: false,
   isRefreshing: false,
+};
+
+const persistConfig = {
+  key: 'root',
+  storage,
 };
 
 const authSlice = createSlice({
@@ -29,4 +36,4 @@ const authSlice = createSlice({
   },
 });
 
-export const authReducer = authSlice.reducer;
+export const authReducer = persistReducer(persistConfig, authSlice.reducer);
