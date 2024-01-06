@@ -5,6 +5,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { orange, lime } from '@mui/material/colors';
 import { GlobalStyles } from 'css/GlobalStyles';
 import SharedLayout from './SharedLayout/SharedLayout';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
@@ -24,11 +26,37 @@ export const App = () => (
     <ThemeProvider theme={theme}>
       <Routes>
         <Route paht="" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="register" element={<RegisterPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="contacts" element={<ContactsPage />} />
-          <Route path="*" element={<h2>Not Found</h2>} />
+          <Route index element={<PublicRoute element={<HomePage />} />} />
+          <Route
+            path="register"
+            element={
+              <PublicRoute
+                element={<RegisterPage />}
+                redirectTo={'/contacts'}
+                restricted
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute
+                element={<LoginPage />}
+                redirectTo={'/contacts'}
+                restricted
+              />
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute element={<ContactsPage />} redirectTo="/login" />
+            }
+          />
+          <Route
+            path="*"
+            element={<PublicRoute element={<h2>Not Found</h2>} />}
+          />
         </Route>
       </Routes>
     </ThemeProvider>

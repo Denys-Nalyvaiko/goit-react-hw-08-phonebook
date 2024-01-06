@@ -18,11 +18,11 @@ const SharedLayout = () => {
       <NavigationContainer>
         <LinkContainer>
           <NavigationLink to="/">Home</NavigationLink>
-          <NavigationLink to="contacts">Contacts</NavigationLink>
+          {isLogin && <NavigationLink to="contacts">Contacts</NavigationLink>}
         </LinkContainer>
         <LinkContainer>{isLogin ? <UserMenu /> : <AuthMenu />}</LinkContainer>
       </NavigationContainer>
-      <Suspense>
+      <Suspense fallback={<p>Loading...</p>}>
         <Outlet />
       </Suspense>
     </>
