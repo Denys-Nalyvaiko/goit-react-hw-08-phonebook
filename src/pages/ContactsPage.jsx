@@ -1,7 +1,7 @@
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
-import { Title } from 'css/Containers/Container.styled';
+import { SectionTitle } from 'css/Containers/Container.styled';
 import {
   ContactsContainer,
   ContactsTitle,
@@ -10,7 +10,7 @@ import {
 const ContactsPage = () => (
   <ContactsContainer>
     <div>
-      <Title>Phonebook</Title>
+      <SectionTitle>Phonebook</SectionTitle>
       <ContactForm />
     </div>
     <div>
