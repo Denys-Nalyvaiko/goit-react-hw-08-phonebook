@@ -8,11 +8,13 @@ const initialState = {
   user: { name: '', email: '' },
   token: '',
   isLogin: false,
+  isRefreshing: false,
 };
 
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['token'],
 };
 
 const authSlice = createSlice({
@@ -31,6 +33,18 @@ const authSlice = createSlice({
       .addCase(
         operations.logoutUser.fulfilled,
         responceHandler.handleLogoutUserFulfilled
+      )
+      .addCase(
+        operations.fetchCurrentUser.pending,
+        responceHandler.handleFetchCurrentUserPending
+      )
+      .addCase(
+        operations.fetchCurrentUser.fulfilled,
+        responceHandler.handleFetchCurrentUserFulfilled
+      )
+      .addCase(
+        operations.fetchCurrentUser.rejected,
+        responceHandler.handleFetchCurrentUserRejected
       );
   },
 });

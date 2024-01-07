@@ -39,6 +39,26 @@ const handleLogoutUserFulfilled = state => ({
   isLogin: false,
 });
 
+const handleFetchCurrentUserPending = state => ({
+  ...state,
+  isRefreshing: true,
+});
+
+const handleFetchCurrentUserFulfilled = (state, { payload }) => ({
+  ...state,
+  user: {
+    name: payload.name,
+    email: payload.email,
+  },
+  isLogin: true,
+  isRefreshing: false,
+});
+
+const handleFetchCurrentUserRejected = state => ({
+  ...state,
+  isRefreshing: false,
+});
+
 const handleRejected = (state, { payload }) => ({
   ...state,
   error: payload,
@@ -51,5 +71,8 @@ export {
   handleSignupUserFulfilled,
   handleLoginUserFulfilled,
   handleLogoutUserFulfilled,
+  handleFetchCurrentUserPending,
+  handleFetchCurrentUserFulfilled,
+  handleFetchCurrentUserRejected,
   handleRejected,
 };
