@@ -1,11 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { initialState } from './initialCommonState';
 import * as responceHandler from './handleCommonResponceActions';
 import * as actionCheker from '../checkAction';
-
-const initialState = {
-  isLoading: false,
-  error: null,
-};
 
 const commonSlice = createSlice({
   name: 'common',

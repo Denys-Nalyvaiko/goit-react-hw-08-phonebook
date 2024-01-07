@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { initialState } from './initialContactsState';
 import * as operations from './contactsOperations';
 import * as responceHandlers from './handleContactsResponceActions';
-
-const initialState = {
-  list: [],
-};
 
 const contactsSlice = createSlice({
   name: 'contacts',
