@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import Grid from '@mui/material/Grid';
 import { ContactItem } from 'components/ContactItem/ContactItem';
-import {  selectContacts } from '../../redux/contacts/selectContacts';
+import { selectContacts } from '../../redux/contacts/selectContacts';
 import { selectError, selectIsLoading } from '../../redux/common/selectCommon';
 import { selectFilter } from '../../redux/filter/selectFilter';
 import { fetchContacts } from '../../redux/contacts/contactsOperations';
@@ -45,8 +45,13 @@ export const ContactList = () => {
             <Demo>
               <List>
                 {filteredContacts
-                  .map(({ id, name, number }) => (
-                    <ContactItem key={id} id={id} name={name} number={number} />
+                  .map(({ _id, name, number }) => (
+                    <ContactItem
+                      key={_id}
+                      id={_id}
+                      name={name}
+                      number={number}
+                    />
                   ))
                   .toReversed()}
               </List>

@@ -21,7 +21,7 @@ const handleAddContactFulfilled = (state, { payload }) => ({
 
 const handleDeleteContact = (state, { payload }) => ({
   ...state,
-  list: state.list.filter(({ id }) => id !== payload.id),
+  list: state.list.filter(({ _id }) => _id !== payload),
 });
 
 const handleRejected = (state, { payload }) => ({
