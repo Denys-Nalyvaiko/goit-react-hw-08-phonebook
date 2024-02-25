@@ -6,15 +6,15 @@ import { API } from 'api/apiConstants';
 const ProfilePage = () => {
   const user = useSelector(selectUser);
 
-  const staticURL = `${API.BASE_URL}/${user.avatarURL}`;
-
-  console.log(staticURL);
+  const currentURL = user.avatarURL.startsWith('avatar')
+    ? `${API.BASE_URL}/${user.avatarURL}`
+    : user.avatarURL;
 
   return (
     <>
       <p>{user.name}</p>
       <p>{user.email}</p>
-      <img src={staticURL ?? user.avatarURL} alt={user.name} width="200" />
+      <img src={currentURL} alt={user.name} width="200" />
 
       <Link to="/profile/update">Update Profile</Link>
     </>
