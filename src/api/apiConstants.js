@@ -7,6 +7,7 @@ export const API = Object.freeze({
       LOGIN: '/users/login',
       LOGOUT: '/users/logout',
       CURRENT: '/users/current',
+      AVATAR: '/users/updateAvatar',
     }),
   }),
 });

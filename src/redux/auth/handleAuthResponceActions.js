@@ -58,6 +58,14 @@ const handleFetchCurrentUserFulfilled = (state, { payload }) => ({
   isRefreshing: false,
 });
 
+const handleUpdateUserAvatarFulfilled = (state, { payload }) => ({
+  ...state,
+  user: {
+    ...state.user,
+    avatarURL: payload,
+  },
+});
+
 const handleFetchCurrentUserRejected = state => ({
   ...state,
   isRefreshing: false,
@@ -78,5 +86,6 @@ export {
   handleFetchCurrentUserPending,
   handleFetchCurrentUserFulfilled,
   handleFetchCurrentUserRejected,
+  handleUpdateUserAvatarFulfilled,
   handleRejected,
 };

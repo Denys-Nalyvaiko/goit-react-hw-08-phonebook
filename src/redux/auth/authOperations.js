@@ -70,3 +70,19 @@ export const fetchCurrentUser = createAsyncThunk(
     }
   }
 );
+
+export const updateUserAvatar = createAsyncThunk(
+  'auth/updateUserAvatar',
+  async (file, thunkAPI) => {
+    const formData = new FormData();
+
+    formData.append('avatar', file);
+
+    try {
+      const { data } = await authAPI.updateUserAvatar(formData);
+      return data.avatarURL;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);

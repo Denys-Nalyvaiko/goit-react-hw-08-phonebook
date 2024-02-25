@@ -33,6 +33,10 @@ const authSlice = createSlice({
       .addCase(
         operations.fetchCurrentUser.rejected,
         responceHandler.handleFetchCurrentUserRejected
+      )
+      .addCase(
+        operations.updateUserAvatar.fulfilled,
+        responceHandler.handleUpdateUserAvatarFulfilled
       );
   },
 });
