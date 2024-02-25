@@ -16,6 +16,8 @@ const HomePage = lazy(() => import('pages/HomePage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage'));
 const ContactsPage = lazy(() => import('pages/ContactsPage'));
+const ProfilePage = lazy(() => import('pages/ProfilePage'));
+const UpdateProfilePage = lazy(() => import('pages/UpdateProfilePage'));
 
 const theme = createTheme({
   palette: {
@@ -74,6 +76,21 @@ export const App = () => {
               path="contacts"
               element={
                 <PrivateRoute element={<ContactsPage />} redirectTo="/login" />
+              }
+            />
+            <Route
+              path="profile"
+              element={
+                <PrivateRoute element={<ProfilePage />} redirectTo="/login" />
+              }
+            />
+            <Route
+              path="profile/update"
+              element={
+                <PrivateRoute
+                  element={<UpdateProfilePage />}
+                  redirectTo="/login"
+                />
               }
             />
             <Route

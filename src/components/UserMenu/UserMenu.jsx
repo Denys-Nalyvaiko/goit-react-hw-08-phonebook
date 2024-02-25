@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { selectUser } from '../../redux/auth/selectUser';
 import { logoutUser } from '../../redux/auth/authOperations';
 import { LogoutButton, UserTitle } from './UseMenu.styled';
@@ -14,6 +15,7 @@ const UserMenu = () => {
   return (
     <>
       <UserTitle>{email}</UserTitle>
+      <Link to="/profile">Profile</Link>
       <LogoutButton onClick={handleLogoutBtnClick}>Log out</LogoutButton>
     </>
   );

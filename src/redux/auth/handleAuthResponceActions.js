@@ -14,6 +14,7 @@ const handleSignupUserFulfilled = (state, { payload }) => ({
   user: {
     name: payload.user.name,
     email: payload.user.email,
+    avatarURL: payload.user.avatarURL,
   },
   token: payload.token,
   isLogin: true,
@@ -24,6 +25,7 @@ const handleLoginUserFulfilled = (state, { payload }) => ({
   user: {
     name: payload.user.name,
     email: payload.user.email,
+    avatarURL: payload.user.avatarURL,
   },
   token: payload.token,
   isLogin: true,
@@ -34,6 +36,7 @@ const handleLogoutUserFulfilled = state => ({
   user: {
     name: '',
     email: '',
+    avatarURL: '',
   },
   token: '',
   isLogin: false,
@@ -49,6 +52,7 @@ const handleFetchCurrentUserFulfilled = (state, { payload }) => ({
   user: {
     name: payload.name,
     email: payload.email,
+    avatarURL: payload.avatarURL,
   },
   isLogin: true,
   isRefreshing: false,
